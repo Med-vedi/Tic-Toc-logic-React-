@@ -4,28 +4,27 @@ import img from "../image/adi1.jpg";
 import cls from "classnames";
 import clip from "../image/stor.mp4";
 import { useState } from "react";
+import VideoFooter from "./VideoFooter";
 
 export const Video = () => {
   const videoRef = useRef(null);
 
-  const [play, setPlay] = useState(false)
+  const [playing, setPlaying] = useState(false)
   const [isOpen, setOpen] = useState(false);
-
-  // let video__classes = {'video__player', 'video__player_open': isOpen}
 
   const handlePostClick = () => {
     setOpen((s) => !s);
   };
 
   const onVideoPress = () => {
-      if(play){
+      if(playing){
         handlePostClick();
         videoRef.current.pause();
-        setPlay(false)
+        setPlaying(false)
       }else{
         handlePostClick();
         videoRef.current.play();
-        setPlay(true)
+        setPlaying(true)
       }
     
   };
@@ -38,6 +37,7 @@ export const Video = () => {
         ref={videoRef}
         src={clip}
       ></video>
+      <VideoFooter likes={111}/>
       {/* <img src={img} alt="photo" className="video__player"/> */}
       {/* <VideoFooter/> */}
       {/* <VideoSidebar/> */}

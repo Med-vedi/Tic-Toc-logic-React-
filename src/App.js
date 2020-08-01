@@ -5,7 +5,7 @@ import { Video } from "./components/Video";
 function App() {
   return (
     <div className="app">
-      <h1>Let's do it!<span>🚀</span></h1>
+      <h1>Let's make it!<span>🚀</span></h1>
       <div className="app__videos">
         <Video />
         <Video />
@@ -15,7 +15,7 @@ function App() {
         <Video />
         <Video />
         <Video />
-        
+
       </div>
     </div>
   );

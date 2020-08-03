@@ -1,14 +1,13 @@
 import React, { useRef } from "react";
 import "./Video.css";
-import img from "../image/adi1.jpg";
 import cls from "classnames";
 import clip from "../image/stor.mp4";
 import { useState } from "react";
 import VideoFooter from "./VideoFooter";
 
-export const Video = () => {
+export const Video = ({url, likes, seller, description}) => {
   const videoRef = useRef(null);
-
+  // console.log({url});
   const [playing, setPlaying] = useState(false)
   const [isOpen, setOpen] = useState(false);
 
@@ -20,7 +19,7 @@ export const Video = () => {
       if(playing){
         handlePostClick();
         videoRef.current.pause();
-        setPlaying(false)
+        // setPlaying(false)
       }else{
         handlePostClick();
         videoRef.current.play();
@@ -35,9 +34,12 @@ export const Video = () => {
         // loop
         onClick={onVideoPress}
         ref={videoRef}
-        src={clip}
+        src={url}
+       
+
       ></video>
-      <VideoFooter likes={111}/>
+      <VideoFooter  likes={likes}  seller={seller}
+        description={description}/>
       {/* <img src={img} alt="photo" className="video__player"/> */}
       {/* <VideoFooter/> */}
       {/* <VideoSidebar/> */}
